@@ -1,6 +1,6 @@
 # Description
 ###### Updated on 13 Aug., 2021
-<<<<<<< HEAD
+
 This repository contains code produced by me.  
 
 You can copy any part of any code in this repository, but make sure that it is ***not for illegal use*** .  
