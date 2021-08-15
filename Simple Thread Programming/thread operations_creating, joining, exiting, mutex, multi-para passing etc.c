@@ -24,6 +24,7 @@ struct pack_t{
 //Global mutex variable (mutex) is used to protect shared data when multiple
 //writes occur.
 pthread_mutex_t mutex; 
+pthread_mutex_t mutex;
 
 /*  Concurrency_routine accept the address of the index counter (shared data).
 It uses mutex to lock the counter when copying the value to the thread's own local
@@ -36,8 +37,8 @@ void * concurrency_routine(void * in) {
     pthread_mutex_unlock(&mutex);
     double res = 0.0;
     printf("Concurrency routine %d is running.\n", index);
-    
-    for(int i = 0; i < 100000; ++i) 
+
+    for(int i = 0; i < 100000; ++i)
         res += sin((double)i) + cos((double)i);
     printf("Concurrency routine %d has finished. The result is %lf .\n", index, res);
     pthread_exit(NULL);
@@ -45,7 +46,7 @@ void * concurrency_routine(void * in) {
 
 /*  Stopwatch_routine accept the address of the multi-para package, which includes
 the number of threads to create and the pthread_t array address. It will calculate
-for how long the stopwatch_routine thread runs, using clock(). Then the thread will 
+for how long the stopwatch_routine thread runs, using clock(). Then the thread will
 exit.
 */
 void * stopwatch_routine(void * pack) {
@@ -81,8 +82,8 @@ int main(int argc, char *argv[]) {
     CHECK_ERROR_OCCUR(rv_create, "pthread_create()", "creating stopwatch_thread")
 
     printf("Joining stopwatch_thread to main...\n");
-    //pthread_join, start the calling thread and block the currently running thread - main,
-    //until the calling thread exits.
+    //pthread_join, start a new thread and block the calling thread - main,
+    //until the new thread exits.
     //YOU CAN SEE HOW RETURN VALUE IS TRANSMITTED:
     rv_join = pthread_join(stopwatch_thread, &clocks);
     CHECK_ERROR_OCCUR(rv_join, "pthread_join", "joining stopwatch_thread to main")
@@ -93,5 +94,5 @@ int main(int argc, char *argv[]) {
     pthread_attr_destroy(&attr);
 
     //use pthread_exit() in main to support running unfinished subthreads when all else in main is done.
-    pthread_exit(NULL); 
+    pthread_exit(NULL);
 }
