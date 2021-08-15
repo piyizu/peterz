@@ -23,7 +23,6 @@ struct pack_t{
 
 //Global mutex variable (mutex) is used to protect shared data when multiple
 //writes occur.
-pthread_mutex_t mutex; 
 pthread_mutex_t mutex;
 
 /*  Concurrency_routine accept the address of the index counter (shared data).
