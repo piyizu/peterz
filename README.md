@@ -1,1 +1,2 @@
-# peterzu
+# This is the Exercises Branch  
+  *In this branch, you can see code examples of my version created during my learning certain topics. Some materials related to those topics would be given, perhaps some of which are done by me. If you find any mistakes in those code examples or materials and you are willing to correct them, you can fork me and make a pull request. Your contributions will be much appreciated!*
