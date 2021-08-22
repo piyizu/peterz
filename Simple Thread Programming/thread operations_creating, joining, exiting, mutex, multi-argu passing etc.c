@@ -14,8 +14,8 @@
     exit(EXIT_FAILURE);\
 }
 
-//Struct pack_t defines the parameter package, which is used in passing
-//multiple parameters:
+//Struct pack_t defines the argument package, which is used in passing
+//multiple arguments:
 struct pack_t{
     int n_threads;
     pthread_t * thread_list;
@@ -43,7 +43,7 @@ void * concurrency_routine(void * in) {
     pthread_exit(NULL);
 }
 
-/*  Stopwatch_routine accept the address of the multi-para package, which includes
+/*  Stopwatch_routine accept the address of the multi-argu package, which includes
 the number of threads to create and the pthread_t array address. It will calculate
 for how long the stopwatch_routine thread runs, using clock(). Then the thread will
 exit.
