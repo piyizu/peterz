@@ -34,6 +34,7 @@ void * concurrency_routine(void * in) {
     pthread_mutex_lock(&mutex);
     int index = (*(int *)in)++;
     pthread_mutex_unlock(&mutex);
+
     double res = 0.0;
     printf("Concurrency routine %d is running.\n", index);
 
@@ -51,9 +52,11 @@ exit.
 void * stopwatch_routine(void * pack) {
     int n = ( (struct pack_t *)pack )->n_threads;
     pthread_t * list = ( (struct pack_t *)pack )->thread_list;
-    int rv_create, thread_index = 0;
+    int rv_create;
+    //static symbol makes the variables available even after the stopwatch thread exits:
     static clock_t clocks;
-    clocks = clock(); //Initialisation of local variables is excluded.
+    static int thread_index = 0;
+    clocks = clock(); //Initialisation of variables is excluded.
     for(int i = 0; i < n; ++i) {
         rv_create = pthread_create(list + i, NULL, concurrency_routine, &thread_index);
         CHECK_ERROR_OCCUR(rv_create, "pthread_create()", "creating concurrency threads")
@@ -83,7 +86,7 @@ int main(int argc, char *argv[]) {
     printf("Joining stopwatch_thread to main...\n");
     //pthread_join, start a new thread and block the calling thread - main,
     //until the new thread exits.
-    //YOU CAN SEE HOW RETURN VALUE IS TRANSMITTED:
+    //YOU CAN SEE HOW RETURN VALUE OF STOPWATCH_ROUTINE IS TRANSMITTED:
     rv_join = pthread_join(stopwatch_thread, &clocks);
     CHECK_ERROR_OCCUR(rv_join, "pthread_join", "joining stopwatch_thread to main")
 
