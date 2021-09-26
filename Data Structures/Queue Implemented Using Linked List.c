@@ -123,7 +123,7 @@ int main() {
 	/* Q is just a pointer and is set to point at nothing at the beginning.
 		However, using gcc compiler, we get a program that runs very well.
 		Is it possible that the compiler ignores Q and directly uses its member:
-		Front and Rear, which are all pointers?
+		Front and Rear, which are both pointers?
 	*/
 
 
