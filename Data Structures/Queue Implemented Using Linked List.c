@@ -79,7 +79,7 @@ status DeQueue(LinkedQueue Q, ElementType *X) {
 		PtrToQueueNode temp = Q->Front->Next;
 		Q->Front->Next = temp->Next;
 		free(temp);
-		if(Q->Front->Next == NULL) 
+		if(Q->Front->Next == NULL)
 		// After deleting the last node in queue, the rear pointer should be reset.
 			Q->Rear = Q->Front;
 		return success;
@@ -119,6 +119,14 @@ status QueueTraverse(LinkedQueue Q) {
 
 int main() {
 	LinkedQueue Q;
+
+	/* Q is just a pointer and is set to point at nothing at the begining.
+		However, using gcc compiler, we get a program that runs very well.
+		Is it possible that the compiler ignores Q and directly uses its member:
+		Front and Rear, which are all pointers?
+	*/
+
+
 	InitQueue(Q);
 	printf(QueueIsEmpty(Q) ? "Empty Queue!\n" : "The queue is not empty!\n");
 	for(int i = 1; i < 30; i += 2) {
