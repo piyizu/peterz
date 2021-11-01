@@ -68,14 +68,44 @@ void PreorderTraversal(BinTree BT) {
     }
     free(S);
 }
-void InorderTraversal(BinTree BT) {
+
+/*void InorderTraversal(BinTree BT) {
     if(BT == NULL) return;
     else {
         InorderTraversal(BT->Left);
         printf(" %c", BT->Data);
         InorderTraversal(BT->Right);
     }
+}*/
+void InorderTraversal(BinTree BT) {
+    if(BT == NULL) return;
+    Position *S = (Position *)malloc(1024 * sizeof(Position));
+    if(S == NULL) exit(EXIT_FAILURE);
+    *S = BT;
+    int Top = 0;
+    Position P;
+    while(Top != -1) {
+        P = S[Top];
+        // At this point, no tree node in the stack is visited.
+        if(P->Left)
+            S[++Top] = P->Left; // push the left subtree into the stack first
+        else {
+            while(Top != -1) {
+            // no left subtree or left subtree has been visited? visit the current node and pop it!
+                P = S[Top];
+                printf(" %c", P->Data);
+                --Top;
+                if(P->Right) { 
+				//if we find a right subtree to visit, we should visit it first
+                    S[++Top] = P->Right;
+                    break;
+                }
+            }
+        }
+    }
+    free(S);
 }
+
 /*
 void PostorderTraversal(BinTree BT) {
     if(BT == NULL) return;
@@ -86,7 +116,6 @@ void PostorderTraversal(BinTree BT) {
     }
 }
 */
-
 void PostorderTraversal(BinTree BT) {
     if(BT == NULL) return;
     Position *S = (Position *)malloc(1024 * sizeof(Position));
