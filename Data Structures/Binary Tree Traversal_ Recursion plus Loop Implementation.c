@@ -7,7 +7,7 @@
 	The following imcomplete code shows how we should complete
 	that task.
 	We give both the recursion and non-recursion implementations
-	of pre-order traversal and post-order traversal.
+	for pre-order, in-order and post-order traversal.
 */
 
 typedef char ElementType;
