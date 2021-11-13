@@ -15,6 +15,7 @@ const int MAX_VERTEX_NUM = 1e2 + 1, MAX_EDGE_NUM = 1e3 + 1, INF = 0x3f3f3f3f;
 
 int v[MAX_VERTEX_NUM], e[MAX_EDGE_NUM], nxt[MAX_EDGE_NUM], w[MAX_EDGE_NUM];
 int n_vertex, n_edge, eindex = 1; //index started from 1 would be easy.
+// vertex index should also start from 1
 
 //data explanation:
 //v[vertex_index]:index of the last edge started from this vertex
