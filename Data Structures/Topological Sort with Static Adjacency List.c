@@ -1,7 +1,7 @@
 //#include <stdio.h>
 
 /*
-  Topological sort, as is named, is a kind of sort, telling if a Directed Acycline Graph is vaild.
+  Topological sort, as is named, is a kind of sort, telling if a graph is a Directed Acyclic Graph.
 */
 
 #define V_MAX 1004
@@ -17,7 +17,7 @@ void add_edge(int start, int end, int w) {
 	vertex[start] = e_index;
 	edge[e_index] = end;
 	weight[e_index++] = w;
-} 
+}
 
 void get_indegree_and_init_zeroin() {
 	for(int i = 1; i <= e_num; ++i) {
@@ -31,16 +31,16 @@ void get_indegree_and_init_zeroin() {
 
 void solve() {
 	get_indegree_and_init_zeroin();
-	
+
 	while(zero_in_top != -1) {
 		int cur = zero_in[zero_in_top--];
 		result[++result_top] = cur;
-		
+
 		for(int j = vertex[cur]; j; j = next[j]) {
 			--indegree[edge[j]]; //update indedgree array
 			if(!indegree[edge[j]]) //if the vertex has no predecessor after operations above
 				zero_in[++zero_in_top] = edge[j]; //add it to the zero_in stack
-				//note: each vertex enters the zero_in stack at most once, 
+				//note: each vertex enters the zero_in stack at most once,
 				// for indegree value will be rendered negative after updating an already-sorted vertex
 				// and thus impossible to be pushed into zero_in stack.
 		}
@@ -59,8 +59,8 @@ int main() {
 		scanf("%d%d%d", &start, &end, &w);
 		add_edge(start, end, w);
 	}
-	
+
 	solve();
-	
+
 	return 0;
-} 
+}
