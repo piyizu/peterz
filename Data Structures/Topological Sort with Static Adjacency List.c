@@ -1,4 +1,4 @@
-//#include <stdio.h>
+#include <stdio.h>
 
 /*
   Topological sort, as is named, is a kind of sort, telling if a graph is a Directed Acyclic Graph.
