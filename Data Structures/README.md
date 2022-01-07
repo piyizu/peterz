@@ -4,5 +4,5 @@ The problem description will be given, either briefly or in detail so you need n
 
 ***However, malloc() and free() are not always paired in the code. That is to say, you may have to define your own clearing functions.***   
 
-Anyway, my code is **not always** the best solution and **may have bugs**. If you have any better ideas, do what I said in the 'branch'.  
+Anyway, my code is **not always** the best solution and **there may be bugs**. If you have any ideas, do what I said in the 'branch'.  
 Thank you! :-)
