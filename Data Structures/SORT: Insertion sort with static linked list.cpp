@@ -2,6 +2,13 @@
 #include <cstdlib>
 #include <ctime>
 
+/*
+	Problem description has been given in the previous code.
+	If we perform insertion sort on the static linked list, 
+	  how can we arrange the non-decreasing list to the ordered sequence without extra memory space? 
+	 In this program, we will show you the method, referring to the textbook.
+*/
+
 #define SIZEMAX 100004
 
 struct listnode{
