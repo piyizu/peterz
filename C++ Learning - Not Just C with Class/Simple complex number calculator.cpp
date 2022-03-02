@@ -109,10 +109,26 @@ public:
 	}
 
 	void UserInput() {
+		/*
 		cout << "Input the real part:";
 		while (!(cin >> real) ) { cout << "ERROR! Try again!"; }
 		cout << "Input the imaginary part:";
 		while (!(cin >> imaginary) ) { cout << "ERROR! Try again!"; }
+		UpdateState();*/
+		//BUG FIXED ON 2 Mar, 2022
+		
+		cout << "Input the real part:";
+		while (!(cin >> real)) { 
+			cout << "ERROR! Try again:"; 
+			cin.clear(); //clear state conditions
+			cin.ignore(INT_MAX, '\n'); //clear input buffer
+		}
+		cout << "Input the imaginary part:";
+		while (!(cin >> imaginary)) { 
+			cout << "ERROR! Try again:"; 
+			cin.clear();
+			cin.ignore(INT_MAX, '\n'); 
+		}
 		UpdateState();
 	}
 };
