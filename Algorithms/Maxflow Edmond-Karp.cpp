@@ -69,7 +69,8 @@ int main() {
 	do {
 		memset(used, 0, sizeof used); //used is used for marking visited vertices
 		memset(p, 0, sizeof p); //p is used to mark the direct father of a vertex
-		memset(preseg, 0, sizeof preseg); // preseg is used to mark the index of the edge pointing to the vertex
+		memset(preseg, -1, sizeof preseg); // preseg is used to mark the index of the edge pointing to the vertex
+		//  -1 here will make sense
 		for(int i = 1; i <= n; ++i)
 			btnk[i] = INF; // btnk indicates the bottleneck capacity in a path from s to the vertex during BFS
 		f = edmond_karp(s, t);
