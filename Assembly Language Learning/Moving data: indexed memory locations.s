@@ -1,6 +1,8 @@
 # compile this simply using gcc
 # gcc ./FILENAME.s -m32 -o ./OUT_FILENAME
 
+# The code is from the book: Professional Assembly Language
+
 .section .data
 output:
     .asciz "The value is %d\n"
