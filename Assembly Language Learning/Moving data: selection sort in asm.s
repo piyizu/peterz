@@ -1,6 +1,6 @@
 # selection sort in IA-32 assembly language
 
-# compile command: gcc ./FILENAME.s -m32 -o ./OUT_FILENAME
+# to compile: gcc ./FILENAME.s -m32 -o ./OUT_FILENAME
 
 .section .data
 ar_size:
