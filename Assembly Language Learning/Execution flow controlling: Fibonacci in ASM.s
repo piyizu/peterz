@@ -10,7 +10,7 @@ output:
 main:
 	movl $0, %eax # fib_var 1
 	movl $1, %ebx # fib_var 2
-	movl $45, %ecx # counter (reverse order)
+	movl $45, %ecx # counter (reverse order), indicating how many fibonacci numbers will be printed
 fibonacci:
 	cmp %eax, %ebx
 	jl cond_ebx_lessthan_eax
