@@ -39,3 +39,7 @@ exit:
 	movl $1, %eax
 	movl $0, %ebx
 	int $0x80
+/* 
+	The instruction for addition with carry is ADC, whose usage is similar to that of SBB. 
+	Remember to add an appropriate suffix (b, w or l) after those instructions when using them.
+*/
