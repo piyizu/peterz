@@ -3,13 +3,13 @@
 
 /* INSTRUCTION : 
 	MUL <source>
------------------------------------------------------
-| oprands size | destination register | result form |
------------------------------------------------------
-|    8 bits    |        AL            |     AX      |
-|   16 bits    |        AX            |   DX:AX     |
-|   32 bits    |        EAX           |  EDX:EAX    | * our program shows this case
------------------------------------------------------
+======================================================================
+| oprands size | destination register | result form |    result      |
+----------------------------------------------------------------------
+|    8 bits    |        AL            |     AX      | AL * <source>  |
+|   16 bits    |        AX            |   DX:AX     | AX * <source>  |
+|   32 bits    |        EAX           |  EDX:EAX    | EAX * <source> | * our program shows this case
+======================================================================
 */
 
 .section .data
