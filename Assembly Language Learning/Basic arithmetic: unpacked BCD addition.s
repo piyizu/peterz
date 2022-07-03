@@ -19,7 +19,7 @@ new_line:
 main:
 	movl $0, %edi
 	movl $9, %ecx
-	clc
+	clc # clear the CF bit
 
 	loop_add:
 		movb num_a(, %edi, 1), %al
