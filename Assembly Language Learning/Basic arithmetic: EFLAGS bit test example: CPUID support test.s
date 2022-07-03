@@ -18,10 +18,11 @@ main:
 
 	pushfl
 	popl %ebx
-	xorl %ebx, %eax # check if the value in EFLAGS has been altered
-	testl $0x00200000, %eax
+	xorl %ebx, %eax # check if the value in EFLAGS has been altered, zero result means changed 
+	testl $0x00200000, %eax # test is AND without modifying the destination
 	jnz cpuid_not_support 
-	// if eax and EFLAGS are the same, which means value has been altered, ZF will be set
+	// if eax AND 0x00200000 is non-zero, which means the value in EFLAGS has not been changed
+	// and the cpu does not support CPUID instruction, the ZF bit will be set.
 
 	pushal
 	movl %esp, %ebp
