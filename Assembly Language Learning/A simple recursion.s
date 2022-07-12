@@ -8,7 +8,7 @@
 size:
 	.int 5                             # the size of the array
 ar:
-	.int 2, 4, 6, 8, 10  # the elements in the array
+	.int -2, 4, -6, 8, -10  # the elements in the array
 res_output:
 	.asciz "The product is %d\n"
 
@@ -49,7 +49,7 @@ rproduct:
 	call rproduct
 	
 	# multiplication after returning and pop
-	mull (%esp)
+	imull (%esp)
 	addl $4, %esp
 	ret
 return_one:
