@@ -15,7 +15,7 @@ int main() {
         float cosine, sine;
         asm(
                 "fsincos" // denoting st(0) as x, x will be popped and sin(x) is pushed and then cos(x) is pushed
-                : "=t"(cosine), "=u"(sine)
+                : "=t"(cosine), "=u"(sine) // t --- top: st(0),  u --- second: st(1)
                 : "0"(radian) // Referencing placeholder '0' is used instead of 't'
         );
 
